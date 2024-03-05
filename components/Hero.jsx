@@ -26,16 +26,16 @@ const Hero = () => {
       </h1>
       <div className="absolute ml-2 md:ml-0 right-2 bottom-2 flex flex-col gap-5 bg-white rounded-2xl max-w-xs md:max-w-xl p-4 lg:p-8">
         <p className="font-normal text-sm lg:text-lg">
-          Whether you need a vehicle for personal or
-          business use, Autoscope has you covered. We are a leading company that
-          offers comprehensive services for vehicle evaluation, car rental and
-          tours in Kenya and beyond.
+          Whether you need a vehicle for personal or business use, Autoscope has
+          you covered. We are a leading company that offers comprehensive
+          services for vehicle evaluation, car rental and tours in Kenya and
+          beyond.
         </p>
         <Link href="/contact">
-        <button className="bg-secondary border border-secondary hover:bg-emerald-500 w-fit transition-all transform duration-150 ease-in-out rounded-3xl text-base text-primary font-semibold py-2 px-5">
-              <Flip children="Contact us" />
-            </button>
-            </Link>
+          <button className="bg-secondary border border-secondary hover:bg-emerald-500 w-fit transition-all transform duration-150 ease-in-out rounded-3xl text-base text-primary font-semibold py-2 px-5">
+            <Flip>Contact us</Flip>
+          </button>
+        </Link>
       </div>
     </div>
   );

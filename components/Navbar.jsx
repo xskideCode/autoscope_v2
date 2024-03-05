@@ -3,7 +3,7 @@
 import Link from "next/link";
 import React, { useState, useCallback } from "react";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion, stagger, } from "framer-motion";
+import { AnimatePresence, motion, stagger } from "framer-motion";
 import MenuItem from "./MenuItem";
 import Flip from "./Flip";
 import Image from "next/image";
@@ -28,13 +28,13 @@ const Navbar = () => {
         <nav className="md:flex hidden overflow-hidden flex-row items-center justify-between gap-[1.88rem] md:gap-7 text-left text-[0.9rem] text-secondary font-medium font-sans text-nowrap flex-nowrap ">
           <div className="flex flex-row items-center justify-start w-80 gap-5">
             <Link href="/carrental" className="text-inherit">
-              <Flip children="Car Rentals" />
+              <Flip>Car Rentals</Flip>
             </Link>
             <Link href="/carevaluation" className="text-inherit">
-              <Flip children="Vehicle Valuation" />
+              <Flip>Vehicle Valuation</Flip>
             </Link>
             <Link href="/tours" className="text-inherit">
-              <Flip children="Tours" />
+              <Flip>Tours</Flip>
             </Link>
           </div>
           <div className="w-80 flex justify-center items-center">
@@ -42,27 +42,37 @@ const Navbar = () => {
               href="/"
               className="[text-decoration:none] font-bold text-xs text-center text-secondary"
             >
-              <Image className="mx-auto" width={50} height={30} src={"/assets/images/autoscope_logo.png"} alt="logo"/>
+              <Image
+                className="mx-auto"
+                width={50}
+                height={30}
+                src={"/assets/images/autoscope_logo.png"}
+                alt="logo"
+              />
               AUTOSCOPE
             </Link>
           </div>
           <div className="flex justify-end items-center w-80">
             <Link href="/contact">
-            <button className="bg-secondary border border-secondary hover:bg-emerald-500 transition-all transform duration-150 ease-in-out rounded-3xl text-base text-primary font-semibold py-2 px-5">
-              <Flip>
-                Contact us
-              </Flip>
-            </button>
+              <button className="bg-secondary border border-secondary hover:bg-emerald-500 transition-all transform duration-150 ease-in-out rounded-3xl text-base text-primary font-semibold py-2 px-5">
+                <Flip>Contact us</Flip>
+              </button>
             </Link>
           </div>
         </nav>
         <div className="md:hidden flex justify-between">
           <div className="flex flex-shrink justify-center items-center">
-          <Link
+            <Link
               href="/"
               className="[text-decoration:none] font-bold text-[0.5rem]  text-center text-secondary"
             >
-              <Image className="mx-auto" width={40} height={20} src={"/assets/images/autoscope_logo.png"} alt="logo"/>
+              <Image
+                className="mx-auto"
+                width={40}
+                height={20}
+                src={"/assets/images/autoscope_logo.png"}
+                alt="logo"
+              />
               AUTOSCOPE
             </Link>
           </div>
@@ -126,28 +136,38 @@ const Navbar = () => {
             >
               <div className="flex flex-col cursor-pointer">
                 <motion.div className="flex flex-col items-center justify-center pt-2">
-                  {['Car Rentals', 'Vehicle Valuation', 'Tours'].map((label, index) => (
-                    <motion.div
-                      key={label}
-                      initial={{ y: 40, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1, transition: { delay: index * 0.3, ease: "easeInOut" } }}
-                    >
-                      <MenuItem
-                        label={label}
-                        href="/"
-                        hidden={true}
-                        onClick={toggleOpen}
-                      />
-                    </motion.div>
-                  ))}
+                  {["Car Rentals", "Vehicle Valuation", "Tours"].map(
+                    (label, index) => (
+                      <motion.div
+                        key={label}
+                        initial={{ y: 40, opacity: 0 }}
+                        animate={{
+                          y: 0,
+                          opacity: 1,
+                          transition: { delay: index * 0.3, ease: "easeInOut" },
+                        }}
+                      >
+                        <MenuItem
+                          label={label}
+                          href="/"
+                          hidden={true}
+                          onClick={toggleOpen}
+                        />
+                      </motion.div>
+                    )
+                  )}
                   <Link href="/contact">
-                  <motion.button
-                    className="bg-secondary w-fit hover:bg-emerald-500 transition-all transform duration-150 ease-in-out rounded-3xl text-base text-primary font-semibold my-2 py-2 px-5"
-                    initial={{ y: 40, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1, transition: { delay: 0.3, ease: "easeInOut" } }}
-                  >
-                    <Flip children="Contact us" />
-                  </motion.button>
+                    <motion.button
+                      className="bg-secondary w-fit hover:bg-emerald-500 transition-all transform duration-150 ease-in-out rounded-3xl text-base text-primary font-semibold my-2 py-2 px-5"
+                      initial={{ y: 40, opacity: 0 }}
+                      animate={{
+                        y: 0,
+                        opacity: 1,
+                        transition: { delay: 0.3, ease: "easeInOut" },
+                      }}
+                    >
+                      <Flip>Contact us</Flip>
+                    </motion.button>
                   </Link>
                 </motion.div>
               </div>
